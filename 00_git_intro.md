@@ -1,9 +1,14 @@
+[toc]
+
+
+
 # Git 초기 설정
 
 **커밋(버전) 작성자(author) 설정**
 
-- 최초 1회 설정
-- commit을 누가 작성했는지 알 수 있게 설정해야 한다. 
+- commit을 누가 작성(author)했는지 알 수 있게 설정해야 한다. 
+
+- 최초 1회 설정하면 그 이후는 (변경 사항이 없다면) 설정해야 할 필요가 없다.
 - 이는 인증(로그인)과는 전혀 관계없음
 
 ```bash
@@ -16,11 +21,23 @@ $ git config --global user.email "edujustin.hphk@gmail.com" # github에 가입�
 설정값 확인
 
 ```bash
-$ git config --global --list
+$ git config --global --list # --l (list의 shortcut)
 user.name=justin kim
 user.email=edujustin.hphk@gmail.com
-
 ```
+
+
+
+만약 전역 영역이 아닌 특정한 git 로컬 디렉토리에서 author를 설정하고 싶다면?
+
+```bash
+$ git config --local user.name "justin kim"
+$ git config --local user.email "edujustin.hphk@gmail.com" 
+
+# 혹은 --local 붙이지 않으면 기본값이 로컬 설정
+```
+
+
 
 
 
@@ -39,7 +56,7 @@ $ git config --global core.editor "code --wait"
 
 ### 로컬 저장소 설정
 
-- `(master)`라고 하는 표시(?)가 붙는다. 
+- `(master)`라고 하는 표시가 생긴다.
 
 ```bash
 $ git init
@@ -49,6 +66,7 @@ Initialized empty Git repository in C:/Users/student/Desktop/git_practice/.git/
 
 
 - 폴더에 git 저장소를 초기화 하면 `.git`이라는 폴더가 생긴다. (숨긴 폴더)
+- 실제 폴더에서 보고 싶다면 `보기` -> `숨긴 항목` 체크
 
 ```bash
 $ ls -a
@@ -117,8 +135,10 @@ $ git add folder # 특정한 폴더(폴더 내부 파일 포함)만 올린다.
 왜 add(SA)가 필요할까?
 
 - 버전을 한번에 기록하는 것이 아니라 따로 기록할 수 있음!
+  - 일부분의 버전만 따로 commit을 할 수 있음
+  - commit을 다시 할 수 있음(amend)
 
-
+- git과 같은 버전 관리 시스템에서만 쓰이는 것이 아니라 웹 개발 분야에 널리 쓰이는 개념 
 
 
 
@@ -169,11 +189,10 @@ $ git log --oneline # commit을 간단하게 보는 방법
 
 
 
-
-
 ## status
 
 - working directory와 staing area 공간의 파일 상태를 확인할 때 사용하는 명령어
+- 만약 commit 정보를 확인하고 싶다면 `$ git log` 명령어를 통해 확인해야 한다.
 
 ![Screen Shot 2021-06-21 at 오후 4.08](md-images/Screen%20Shot%202021-06-21%20at%20%EC%98%A4%ED%9B%84%204.08.png)
 
@@ -210,7 +229,7 @@ $ git status
 On branch master
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
-        modified:   a.txt # commit 되어질 변화 사항들
+        modified:   a.txt # commit 되어질 변화 사항들 (한번도 tracking 되지 않은 사항과 비교)
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
@@ -249,7 +268,7 @@ bf2ffc8 (HEAD -> master) Finish b.txt
 
 
 
-최종 정리
+## 최종 정리
 
 ![Screen Shot 2021-06-21 at 오후 4.25](md-images/Screen%20Shot%202021-06-21%20at%20%EC%98%A4%ED%9B%84%204.25.png)
 

@@ -18,12 +18,15 @@
 
    ![Screen Shot 2021-06-21 at 오후 4.58](md-images/Screen%20Shot%202021-06-21%20at%20%EC%98%A4%ED%9B%84%204.58.png)
 
+   Public은 누구든 자신의 github 저장소에 방문하면 해당 repo 정보를 확인할 수 있고 Private은 repo의 권한이 있는 사람만 열람이 가능하다.
+
    ![Screen Shot 2021-06-21 at 오후 4.46](md-images/Screen%20Shot%202021-06-21%20at%20%EC%98%A4%ED%9B%84%204.46.png)
 
 3. Repository default branch 
 
    - main -> master로 변경
-
+   - 한번만 설정하면 됨
+   
    ![Screen Shot 2021-06-21 at 오후 5.01](md-images/Screen%20Shot%202021-06-21%20at%20%EC%98%A4%ED%9B%84%205.01.png)
 
 
@@ -35,8 +38,10 @@
 ### 원격 저장소 주소 추가
 
 - "git아! 원격 저장소(remote)를 추가(add)해줘 origin이라는 이름으로!!!"
-
-- origin은 저장소 URL에 별명(?)을 붙였다고 생각하면 이해하기 편함!!
+- origin은 저장소 URL에 별명(?)을 붙였다고 생각하면 된다.
+  - 만약 `origin`이라는 별명을 붙여주지 않는다면?
+  - push 할 때 `$ git push origin https://github.com/edujustin-hphk/practice.git` 항상 이렇게 긴 URL을 모두 직접 입력해야 한다.
+- 참고적으로 `origin`이라는 이름을 반드시 사용해야하는 것은 아니지만 일반적으로 `origin`을 사용한다.
 
 ```bash
 $ git remote add origin https://github.com/edujustin-hphk/practice.git # 저장소 URL은 본인 repo의 URL을 등록하면 됨
@@ -64,9 +69,16 @@ $ git remote rm origin # rm -> remove
 
 ## 원격 저장소에 업로드(push)
 
-최초 1회는 로그인 필요
+- 최초 1회는 로그인 필요 -> 이때 git bash를 vscode에서 열어서 로그인을 진행 해야 한다.
+
+  - `ctrl + shift + p` -> `>default` 입력 -> `Terminal: Select Default Profile` 클릭 -> `git bash 선택`
+
+  - 이후 터미널 종료 후 재실행
+
+
 
 - "git아 push해줘! origin이라는 이름의 원격 저장소로 master 브랜치를!!!"
+  - 첫 로그인 화면에서는 그냥 `enter`만 눌러주자!
 
 ![Screen Shot 2021-06-21 at 오후 4.55](md-images/Screen%20Shot%202021-06-21%20at%20%EC%98%A4%ED%9B%84%204.55.png)
 
@@ -101,6 +113,7 @@ To https://github.com/edujustin-hphk/practice.git
 ## TIL (Today I Learned)
 
 - 개발자들의 연습장?
-
 - README -> 나를 읽어줘! 
-  - 대소문자는 구분하지 않지만 파일명은 반드시 readme로 작성!
+  - 대소문자는 구분하지 않지만 파일명은 반드시 readme로 작성해야 한다.
+- README 파일은 일반적으로 해당 원격 저장소가 어떤 내용인지를 설명한다.
+
